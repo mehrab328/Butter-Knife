@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#76b5a5"
+    tools:context="threemusketeers.butterknife.Info">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="PERSONAL INFORMATION"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AGE: "
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/e1age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="GENDER: "
+            android:textSize="15sp" />
+
+        <RadioGroup
+            android:id="@+id/radioSex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MALE" />
+
+            <RadioButton
+                android:id="@+id/radioFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="FEMALE" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="USER TYPE: "
+            android:textSize="15sp" />
+
+        <RadioGroup
+            android:id="@+id/radioType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LEFT HANDED" />
+
+            <RadioButton
+                android:id="@+id/radioRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="RIGHT HANDED" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="VISION PROBLEM: "
+            android:textSize="15sp" />
+
+        <RadioGroup
+            android:id="@+id/radioVision"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioVisionNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NO" />
+
+            <RadioButton
+                android:id="@+id/radioVisionYes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="YES" />
+
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="MOBILITY PROBLEM: "
+            android:textSize="15sp" />
+
+        <RadioGroup
+            android:id="@+id/radioMobility"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioMobilityNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NO" />
+
+            <RadioButton
+                android:id="@+id/radioMobilityYes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="YES" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="DIFFICULTY LEVEL: "
+            android:textSize="15sp" />
+
+        <RadioGroup
+            android:id="@+id/radioDifficulty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioEasy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="EASY" />
+
+            <RadioButton
+                android:id="@+id/radioMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="MEDIUM" />
+
+            <RadioButton
+                android:id="@+id/radioHard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="HARD" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="PROCEED" />
+
+    <Button
+        android:id="@+id/exit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="EXIT" />
+
+    <Button
+        android:id="@+id/insert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="INSERT IMAGE" />
+
+
+</LinearLayout>

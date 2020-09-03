@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#76b5a5"
     tools:context="threemusketeers.butterknife.ImageActivity">
 
     <LinearLayout
@@ -19,8 +20,50 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Alphabet ID: "
-                android:textSize="20sp" />
+                android:layout_marginTop="8dp"
+                android:text="DIFFICULTY LEVEL: "
+                android:textSize="15sp" />
+
+            <RadioGroup
+                android:id="@+id/radioDifficultyImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioEasyImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EASY" />
+
+                <RadioButton
+                    android:id="@+id/radioMediumImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="MEDIUM" />
+
+                <RadioButton
+                    android:id="@+id/radioHardImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="HARD" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ALPHABET: "
+                android:textSize="15sp" />
 
             <EditText
                 android:id="@+id/eid"
@@ -109,11 +152,11 @@
             android:text="Add" />
 
         <Button
+            android:id="@+id/btnPart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btnPart"
             android:layout_marginTop="38dp"
-            android:text="Add Sub-Part"/>
+            android:text="Add Sub-Part" />
 
 
     </LinearLayout>

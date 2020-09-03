@@ -15,6 +15,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
@@ -26,6 +28,9 @@ public class ImageActivity extends AppCompatActivity implements View.OnClickList
     EditText etext;
     ImageView imageView, ip1, ip2, ip3, ip4;
     Button btnChoose, bp1, bp2, bp3, bp4, btnAdd, btnPart;
+
+    RadioGroup radiodifficulty;
+    RadioButton radio;
 
     final int REQUEST_CODE_GALLERY = 999;
     final int REQUEST_CODE_GALLERY1 = 111;
@@ -45,8 +50,8 @@ public class ImageActivity extends AppCompatActivity implements View.OnClickList
 
         sqLiteHelper = new SQLiteHelper(this, "CaptchaDB.sqlite", null, 1);
 
-        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS CAPTCHA(id INTEGER PRIMARY KEY AUTOINCREMENT, alphabet VARCHAR, image BLOB)");
-        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS SUBCAPTCHA(part_name VARCHAR, part_image BLOB, part_alpha VARCHAR)");
+        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS CAPTCHA(alphabet VARCHAR, image BLOB, captcha_difficulty VARCHAR)");
+        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS SUBCAPTCHA(part_name VARCHAR, part_image BLOB, part_alpha VARCHAR, subcaptcha_difficulty VARCHAR)");
 
         btnChoose.setOnClickListener(this);
 
@@ -59,14 +64,23 @@ public class ImageActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onClick(View view) {
                 try {
-                    sqLiteHelper.insertData(etext.getText().toString().trim(),
-                            imageViewToByte(imageView)
-                    );
-                    Toast.makeText(getApplicationContext(), "Added successfully!", Toast.LENGTH_SHORT).show();
+                    if(radiodifficulty.getCheckedRadioButtonId() == -1) {
+                        Toast.makeText(getApplicationContext(), "Empty field detected", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
+                    radio = (RadioButton) findViewById(radiodifficulty.getCheckedRadioButtonId());
+                    String selected_difficulty = radio.getText().toString().trim();
+
+                    //Toast.makeText(getApplicationContext(), selected_difficulty, Toast.LENGTH_LONG).show();
+
+                    sqLiteHelper.insertData(etext.getText().toString().trim(), imageViewToByte(imageView), selected_difficulty);
+                    Toast.makeText(getApplicationContext(), "Added successfully!", Toast.LENGTH_LONG).show();
                     //etext.setText("");
                     imageView.setImageResource(R.mipmap.ic_launcher);
                 } catch (Exception e) {
                     e.printStackTrace();
+                    //Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -75,10 +89,15 @@ public class ImageActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onClick(View view) {
                 try {
-                    sqLiteHelper.insertData_subcaptcha(etext.getText().toString().trim() + "1", imageViewToByte(ip1), etext.getText().toString().trim());
-                    sqLiteHelper.insertData_subcaptcha(etext.getText().toString().trim() + "2", imageViewToByte(ip2), etext.getText().toString().trim());
-                    sqLiteHelper.insertData_subcaptcha(etext.getText().toString().trim() + "3", imageViewToByte(ip3), etext.getText().toString().trim());
-                    sqLiteHelper.insertData_subcaptcha(etext.getText().toString().trim() + "4", imageViewToByte(ip4), etext.getText().toString().trim());
+                    if (radiodifficulty.getCheckedRadioButtonId() == -1) return;
+
+                    radio = (RadioButton) findViewById(radiodifficulty.getCheckedRadioButtonId());
+                    String selected_difficulty = radio.getText().toString();
+
+                    sqLiteHelper.insertData_subcaptcha(etext.getText().toString().trim() + "1", imageViewToByte(ip1), etext.getText().toString().trim(), selected_difficulty);
+                    sqLiteHelper.insertData_subcaptcha(etext.getText().toString().trim() + "2", imageViewToByte(ip2), etext.getText().toString().trim(), selected_difficulty);
+                    sqLiteHelper.insertData_subcaptcha(etext.getText().toString().trim() + "3", imageViewToByte(ip3), etext.getText().toString().trim(), selected_difficulty);
+                    sqLiteHelper.insertData_subcaptcha(etext.getText().toString().trim() + "4", imageViewToByte(ip4), etext.getText().toString().trim(), selected_difficulty);
 
                     Toast.makeText(getApplicationContext(), "Subpart added successfully!", Toast.LENGTH_SHORT).show();
 
@@ -87,6 +106,7 @@ public class ImageActivity extends AppCompatActivity implements View.OnClickList
                     ip3.setImageResource(R.mipmap.ic_launcher);
                     ip4.setImageResource(R.mipmap.ic_launcher);
                     etext.setText("");
+                    radiodifficulty.clearCheck();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -240,6 +260,8 @@ public class ImageActivity extends AppCompatActivity implements View.OnClickList
         bp3 = (Button) findViewById(R.id.bp3);
         bp4 = (Button) findViewById(R.id.bp4);
         btnPart = (Button) findViewById(R.id.btnPart);
+
+        radiodifficulty = (RadioGroup) findViewById(R.id.radioDifficultyImage);
     }
 
     @Override
@@ -279,6 +301,14 @@ public class ImageActivity extends AppCompatActivity implements View.OnClickList
                     REQUEST_CODE_GALLERY4
             );
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(ImageActivity.this, Info.class);
+        startActivity(intent);
+        finish();
     }
 }
 

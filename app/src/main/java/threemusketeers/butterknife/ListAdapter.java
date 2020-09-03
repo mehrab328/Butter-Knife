@@ -104,7 +104,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
     class ListViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.text)
         //TextView text
-                ImageView text;
+        ImageView text;
         @BindView(R.id.frame_layout_item)
         FrameLayout frameLayout;
 

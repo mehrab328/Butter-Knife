@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#76b5a5"
+    tools:context="threemusketeers.butterknife.Status">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="OVERVIEW"
+        android:textColor="#CE1141"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Age: "
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender: "
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tgender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Type: "
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tusertype"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vision Problem: "
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvision"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mobility Problem: "
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tmobility"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Difficulty: "
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tdifficulty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Elapsed Time: "
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/ttime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number of Attempts: "
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tattempt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FINAL OUTCOME: "
+            android:textColor="#ff0343"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tsuccess"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#ff0343"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TRY AGAIN" />
+
+        <Button
+            android:id="@+id/bexit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity=""
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:text="EXIT" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,16 +1,18 @@
 package threemusketeers.butterknife;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.graphics.Rect;
-import android.os.Environment;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.View;
+import android.widget.Toast;
 
+import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.List;
 
 
@@ -34,10 +36,13 @@ class DragListener implements View.OnDragListener {
             case DragEvent.ACTION_DRAG_LOCATION:
                 Point touchPosition = getTouchPositionFromDragEvent(v, event);
                 Log.d("Moving: ", "X = " + touchPosition.x + " Y = " + touchPosition.y);
-                WriteBtn(touchPosition.x, touchPosition.y);
+                //WriteBtn(touchPosition.x, touchPosition.y);
+
+                MainActivity.xyData.add(touchPosition.x + "," + touchPosition.y + " ");
                 break;
 
             case DragEvent.ACTION_DROP:
+                MainActivity.xyData.add(" ||| ");
                 isDropped = true;
                 int positionTarget = -1;
 
@@ -145,31 +150,5 @@ class DragListener implements View.OnDragListener {
         Rect rItem = new Rect();
         item.getGlobalVisibleRect(rItem);
         return new Point(rItem.left + Math.round(event.getX()), rItem.top + Math.round(event.getY()));
-    }
-
-    public void WriteBtn(int x, int y) {
-        // add-write text into file
-        try {
-            /*File gpxfile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/myfile.txt");
-            //if(!gpxfile.exists()) gpxfile.createNewFile();
-            FileWriter writer = new FileWriter(gpxfile);
-            //writer.append(String.valueOf(x));
-            writer.append(x + " " + y + "\n");
-            writer.flush();
-            writer.close();*/
-
-            String basefolder = MainActivity.ctx.getFilesDir().getAbsolutePath();
-
-            FileOutputStream fileOutputStream = MainActivity.ctx.openFileOutput("test.txt", Context.MODE_APPEND);
-            //OutputStreamWriter osw = new OutputStreamWriter(fileOutputStream);
-            String temp = x + " " + y + "\n";
-            fileOutputStream.write(temp.getBytes());
-            fileOutputStream.flush();
-            fileOutputStream.close();
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }
